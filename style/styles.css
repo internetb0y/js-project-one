@@ -78,7 +78,7 @@ body {
     border-radius: 10px;
     margin: 5px 0;
     list-style: none;
-} .wrapper-li li.container-li {
+} .wrapper-li .list {
     display: flex;
     justify-content: space-between;
     align-items: center;
