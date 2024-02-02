@@ -2,9 +2,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
+*::-webkit-scrollbar {
+    display: none;
+}
 body {
     background: #004643;
     display: flex;
