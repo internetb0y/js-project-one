@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* overflow: hidden; */
+}
+
+body {
+    background: #004643;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Title */
+.container {
+    display: block;
+    height: 80vh;
+    width: 75vw;
+    padding: 20px;
+    /* border: 3px solid black; */
+}
+
+.title {
+    font-size: 70px;
+    text-align: center;
+    color: #abd1c6;
+    font-family: 'Workbench', sans-serif;
+}
+
+.normal-text {
+    font-size: 28px;
+    text-align: center;
+    color: #abd1c6;
+    font-family: 'Workbench', sans-serif;
+}
+
+/* Function */
+.function {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.function #input-box, #enter, #clear {
+    margin: 15px;
+    font-family: 'Roboto Condensed', sans-serif;
+} #input-box {
+    height: 35px;
+    width: 250px;
+    text-align: center;
+    border-radius: 6px;
+} #enter, #clear {
+    cursor: pointer;
+    padding: 7px 20px;
+    border: 0px;
+    border-radius: 15px;
+    background: #f9bc60;
+} #enter:hover, #clear:hover {
+    transform: scale(1.1);
+}
+
+/* List */
+.wrapper-ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17.5px;
+    background: #abd1c6;
+    width: 400px;
+    border-radius: 10px;
+    margin: 5px 0;
+    list-style: none;
+} .wrapper-li li.container-li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+} .wrapper-li li, button {
+    margin: 5px 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+.btn-delete {
+    cursor: pointer;
+    border: 0px;
+    background: #abd1c6;
+} .btn-delete:hover {
+    transform: scale(1.1);
+}
