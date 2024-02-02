@@ -10,7 +10,7 @@
 body {
     background: #004643;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
 }
