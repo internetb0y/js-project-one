@@ -10,7 +10,7 @@
 body {
     background: #004643;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     height: 100vh;
 }
@@ -19,7 +19,7 @@ body {
 .container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 80vh;
     width: 75vw;
