@@ -1,0 +1,120 @@
+/* 
+------------------------
+# # # CSS Template # # #
+------------------------
+- Cursor And Display
+- Height And Width
+- Text And Font
+- Border, Margin, Padding
+- Color And Background
+- Transition And Animation
+*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} *::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #004643;
+}
+
+/* Title */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    height: 80vh;
+    width: 75vw;
+} .title {
+    text-align: center;
+    font-size: 75px;
+    font-family: 'DotGothic16', sans-serif;
+    letter-spacing: 5px;
+
+    color: #abd1c6;
+} .description {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'DotGothic16', sans-serif;
+    letter-spacing: 2px;
+
+    color: #abd1c6;
+}
+
+/* Function */
+.function {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    margin: 20px;
+} .input-list {
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    width: 300px;
+
+    border-radius: 5px;
+    margin: 0 15px;
+    padding: 3px 10px;
+} .enter, .clear {
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    border: 0px;
+    border-radius: 5px;
+    margin: 0 15px;
+    padding: 3px 10px;
+
+    background: #f9bc60;
+} .enter:hover, .clear:hover {
+    transform: scale(1.1);
+}
+
+/* Todo List */
+.list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    width: 350px;
+
+    border: 3px solid #001e1d;
+    border-radius: 5px;
+    margin: 5px 0;
+    padding: 7px 10px;
+
+    color: #001e1d;
+    background: #abd1c6;
+
+    list-style: none;
+} .delete {
+    cursor: pointer;
+
+    font-size: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+
+    border: 0px;
+
+    color: #001e1d;
+    background: #abd1c6;
+} .delete:hover {
+    transform: scale(1.1);
+}
