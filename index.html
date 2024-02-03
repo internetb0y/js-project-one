@@ -3,37 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Workbench&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=Roboto+Condensed:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/styles.css">
     <link rel="icon" href="images/favicon.png">
-    <title>To Do List</title>
+    <title>Todo List</title>
 </head>
 <body>
-    <div class="container">
-        <p class="title">To Do List<br>
-        <p class="normal-text">Lets Finish Something Today</p>
+    <main class="container">
+        <h1 class="title">Todo List</h1>
+        <p class="description">Lets Listing What You Want A To Do</p>
 
-        <div class="function">
-            <input id="input-box" type="text" placeholder="Type Here">
-            <button id="enter">Enter</button>
-            <button id="clear">Clear</button>
-        </div>
+        <section class="function">
+            <input id="input-list" class="input-list" type="text" placeholder="Type Here">
+            <button id="enter" class="enter">Enter</button>
+            <button id="clear" class="clear">Clear</button>
+        </section>
 
-        <div class="wrapper-ul">
+        <section class="todo-list">
             <ul>
-                <div class="wrapper-li">
-                    <li class="list">Code Something</li>
-                    <button id="btn-delete" class="btn-delete" type="button">Delete</button>
-                </div>
-
-                <div class="wrapper-li">
-                    <li class="list">Reading A Book</li>
-                    <button id="btn-delete" class="btn-delete" type="button">Delete</button>
-                </div>
+                <li class="list">Code Something<button id="delete" class="delete">Delete</button></li>
+                <li class="list">Reading Book<button id="delete" class="delete">Delete</button></li>
             </ul>
-        </div>
-    </div>
+        </section>
+    </main>
 
     <!-- Javascript -->
     <script type="text/javascript" src="script/scripts.js"></script>
