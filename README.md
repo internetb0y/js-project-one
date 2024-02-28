@@ -1,3 +1,3 @@
-<h1>☄ Learn DOM Manipulation</h1>
+<h1>☄ Todo List</h1>
 
-<em>02/02/2024</em>
+> Learn DOM Manipulation
