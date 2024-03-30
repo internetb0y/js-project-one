@@ -1,65 +1,116 @@
-// Declare And Initialize Variable
-const btn_enter = document.getElementById("enter");
-const btn_clear = document.getElementById("clear");
-const inpt_list = document.getElementById("input-list");
+const todos = [];
 
-const btn_dlete = document.querySelector("ul");
+const todoId = () => {
+    return + new Date();
+}
 
-var button, li, ul, section;
+const objTodo = (id, text) => {
+    return {
+        id,
+        text
+    };
+}
 
-// Declare And Initialize Function
-function addListClick() {
-    if (inpt_list.value.length > 0) {
-        button = document.createElement("button");
-        button.classList.add("delete");
-        button.innerHTML = "Delete";
+const addTodo = () => {
+    const todo = document.querySelector('#input-list').value;
 
-        li = document.createElement("li");
-        li.classList.add("list");
-        li.appendChild(document.createTextNode(inpt_list.value));
-        li.appendChild(button);
+    const uniqueId = todoId();
+    const objectTodo = objTodo(uniqueId, todo);
+    todos.push(objectTodo);
+}
 
-        ul = document.querySelector("ul");
-        ul.appendChild(li);
+const clearTodo = () => {
+    const containerList = document.querySelector('.todo-list ul');
+    containerList.innerHTML = "";
+    todos.splice(0, todos.length);
+}
 
-        inpt_list.value = "";
+const makeTodo = (objectTodo) => {
+    const deleteButton = document.createElement('button');
+    deleteButton.setAttribute('id', 'delete');
+    deleteButton.setAttribute('class', 'delete');
+    deleteButton.innerText = "Delete";
+
+    deleteButton.addEventListener('click', () => {
+        deleteTodo(objectTodo.id);
+        console.log(todos);
+    })
+
+    const paragraph = document.createElement('p');
+    paragraph.setAttribute('id', 'text');
+    paragraph.innerText = objectTodo.text;
+
+    const list = document.createElement('li');
+    list.setAttribute('class', 'list');
+    list.appendChild(paragraph);
+    list.appendChild(deleteButton);
+
+    return list;
+}
+
+const findIndexTodo = (objectId) => {
+    for (const index in todos) {
+        if (todos[index].id === objectId) {
+            return index;
+        }
     }
+
+    return -1;
 }
 
-function clearList() {
-    ul = document.querySelector("ul");
-    ul.innerHTML = " ";
-}
+const deleteTodo = (objectId) => {
+    const todo = findIndexTodo(objectId);
 
-function addListPress(event) {
-    if (inpt_list.value.length > 0 && event.keyCode === 13) {
-        button = document.createElement("button");
-        button.classList.add("delete");
-        button.innerHTML = "Delete";
-
-        li = document.createElement("li");
-        li.classList.add("list");
-        li.appendChild(document.createTextNode(inpt_list.value));
-        li.appendChild(button);
-
-        ul = document.querySelector("ul");
-        ul.appendChild(li);
-
-        inpt_list.value = "";
+    if (todo === -1) {
+        return;
     }
+
+    todos.splice(todo, 1);
 }
 
-function deleteList(event) {
-    if (event.target.tagName === "BUTTON") {
-        li = event.target.parentNode;
-        ul = li.parentNode;
-        ul.removeChild(li);
-    }
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const addClick = document.querySelector('#enter');
 
-// Main Function
-btn_enter.addEventListener("click", addListClick)
-btn_clear.addEventListener("click", clearList)
-inpt_list.addEventListener("keypress", addListPress)
+    addClick.addEventListener('click', () => {
+        if (document.querySelector('#input-list').value !== "") {
+            addTodo();
+            console.log(todos);
 
-btn_dlete.addEventListener("click", deleteList)
+            const containerList = document.querySelector('.todo-list ul');
+            containerList.innerHTML = "";
+
+            for (const todo of todos) {
+                const listTodo = makeTodo(todo);
+                containerList.appendChild(listTodo);
+            }
+
+            document.querySelector('#input-list').value = "";
+        }
+    })
+
+    const addPress = document.querySelector('#input-list');
+
+    addPress.addEventListener('keypress', (event) => {
+        if (event.keyCode === 13) {
+            addTodo();
+            console.log(todos);
+
+            const containerList = document.querySelector('.todo-list ul');
+            containerList.innerHTML = "";
+
+            for (const todo of todos) {
+                const listTodo = makeTodo(todo);
+                containerList.appendChild(listTodo);
+            }
+
+            document.querySelector('#input-list').value = "";
+        }
+    })
+
+    const clear = document.querySelector('#clear');
+
+    clear.addEventListener('click', () => {
+        clearTodo();
+        console.log(todos);
+    })
+})

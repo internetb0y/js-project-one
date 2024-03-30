@@ -133,3 +133,9 @@ body {
 } .delete:hover {
     transform: scale(1.1);
 }
+
+/* Added */
+.line {
+    text-decoration: line-through;
+    text-decoration-thickness: 4.5px;
+}
