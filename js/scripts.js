@@ -31,11 +31,6 @@ const makeTodo = (objectTodo) => {
     deleteButton.setAttribute('class', 'delete');
     deleteButton.innerText = "Delete";
 
-    deleteButton.addEventListener('click', () => {
-        deleteTodo(objectTodo.id);
-        console.log(todos);
-    })
-
     const paragraph = document.createElement('p');
     paragraph.setAttribute('id', 'text');
     paragraph.innerText = objectTodo.text;
@@ -44,6 +39,14 @@ const makeTodo = (objectTodo) => {
     list.setAttribute('class', 'list');
     list.appendChild(paragraph);
     list.appendChild(deleteButton);
+
+    deleteButton.addEventListener('click', () => {
+        const unorderList = document.querySelector('.todo-list ul');
+        unorderList.removeChild(list);
+
+        deleteTodo(objectTodo.id);
+        console.log(todos);
+    })
 
     return list;
 }
