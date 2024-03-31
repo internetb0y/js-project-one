@@ -1,3 +1,4 @@
+const STORAGE = "list-todo";
 const todos = [];
 
 const todoId = () => {
@@ -11,18 +12,47 @@ const objTodo = (id, text) => {
     };
 }
 
+const validationData = () => {
+    if (typeof(Storage) === "undefined") {
+        console.log("This Function Can't Be Used!");
+        return false;
+    }
+
+    return true;
+}
+
+const saveData = () => {
+    if (validationData()) {
+        const parseData = JSON.stringify(todos);
+        localStorage.setItem(STORAGE, parseData);
+    }
+}
+
+const loadData = () => {
+    const getData = localStorage.getItem(STORAGE);
+    const data = JSON.parse(getData);
+
+    if (data !== null) {
+        for (const todo of todos) {
+            todos.push(todo);
+        }
+    }
+}
+
 const addTodo = () => {
     const todo = document.querySelector('#input-list').value;
 
     const uniqueId = todoId();
     const objectTodo = objTodo(uniqueId, todo);
     todos.push(objectTodo);
+    saveData();
 }
 
 const clearTodo = () => {
     const containerList = document.querySelector('.todo-list ul');
     containerList.innerHTML = "";
     todos.splice(0, todos.length);
+    saveData();
 }
 
 const makeTodo = (objectTodo) => {
@@ -69,6 +99,7 @@ const deleteTodo = (objectId) => {
     }
 
     todos.splice(todo, 1);
+    saveData();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
